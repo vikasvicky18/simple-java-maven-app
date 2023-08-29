@@ -1,6 +1,6 @@
 ---
 - name: Install Tomcat and Create User
-  hosts: 16.171.226.147
+  hosts: 16.171.139.98
 
   tasks:
     - name: Copy file to remote host
