@@ -7,6 +7,7 @@
       copy:
         src: /home/ec2-user/test/file1.txt
         dest: /home/ec2-user/dir1
+        remote_src: yes
       become: true
       
     - name: Install Tomcat
