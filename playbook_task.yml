@@ -6,21 +6,21 @@
     - name: Copy file to remote host
       copy:
         src: /home/ec2-user/test/file1.txt
-        dest: /home/ec2-user
+        dest: /home/ec2-user/dir1
         remote_src: yes
       become: true
       
-    # - name: Install Tomcat
-    #   become: true  # Run as sudo
-    #   package:
-    #     name: tomcat  # Use 'tomcat' for Red Hat-based systems
-    #     state: present
+    - name: Install Tomcat
+      become: true  # Run as sudo
+      package:
+        name: tomcat  # Use 'tomcat' for Red Hat-based systems
+        state: present
 
-    # - name: Create a user
-    #   user:
-    #     name: newuser
-    #     password: "{{ 'V@k12345' | password_hash('sha512') }}"
-    #     state: present
-    #     groups: wheel
-    #     create_home: yes
-    #   become: yes
+    - name: Create a user
+      user:
+        name: newuser
+        password: "{{ 'V@k12345' | password_hash('sha512') }}"
+        state: present
+        groups: wheel
+        create_home: yes
+      become: yes
