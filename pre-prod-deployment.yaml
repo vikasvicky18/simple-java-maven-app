@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: pre-prod-deployment
+  name: mysql-deployment
 spec:
-  replicas: 4
+  replicas: 1 # You can adjust the number of replicas as needed
   selector:
     matchLabels:
-      app: pre-prod-app
+      app: mysql
   template:
     metadata:
       labels:
-        app: pre-prod-app
+        app: mysql
     spec:
       containers:
-        - name: postgres-container
-          image: postgres
-
+        - name: db
+          image: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: vikasvicky
