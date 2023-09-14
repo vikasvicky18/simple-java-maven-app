@@ -1,12 +1,20 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: pre-prod-pod
+  name: mysql-deployment
 spec:
-  containers:
-    - name: db
-      image: mysql
-      env:
-      - name: MYSQL_ROOT_PASSWORD
-	value: vikasvicky
-
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+        - name: db
+          image: mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: vikasvicky
