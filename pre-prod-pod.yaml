@@ -1,11 +1,1 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pre-prod-pod
-spec:
-  containers:
-    - name: db
-      image: mysql
-      env:
-      - name: MYSQL_ROOT_PASSWORD
-        value: vikasvicky
+
