@@ -1,18 +1,1 @@
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: qa-deployment
-spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: qa-app
-  template:
-    metadata:
-      labels:
-        app: qa-app
-    spec:
-      containers:
-        - name: tomcat-container
-          image: tomcat
 
